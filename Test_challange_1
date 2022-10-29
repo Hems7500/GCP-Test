@@ -2,10 +2,6 @@ Variable "project_id" {
   type = string
 }
 
-variable "project_number" {
-  type = string
-}
-
 variable "region" {
   type = string
 }
@@ -52,7 +48,7 @@ resource "google_project_iam_member" "allrun" {
   provider       = google-beta
   project        = var.project_id
   
-  # Handle Database
+
 resource "google_sql_database_instance" "main" {
   name             = "${var.deployment_name}-db-${random_id.id.hex}"
   database_version = "MYSQL_5_7"
